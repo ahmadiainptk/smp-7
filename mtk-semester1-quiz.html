@@ -43,7 +43,7 @@
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mtk-semester1-general.html" target="_blank" class="px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 font-semibold shadow transition">
+                <a href="rangkuman_mtk_7.html" target="_blank" class="px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 font-semibold shadow transition">
                     📖 Buka Rangkuman Materi
                 </a>
             </div>
@@ -61,8 +61,8 @@
 
     <!-- 2. QUIZ INTERFACE -->
     <div id="quizInterface" class="hidden-section min-h-screen pb-20">
-        <!-- Sticky Header -->
-        <div class="sticky top-0 bg-white shadow-md z-10 px-4 py-3 flex justify-between items-center border-b border-gray-200">
+        <!-- Sticky Header (Added ID for scrolling target) -->
+        <div id="topHeader" class="sticky top-0 bg-white shadow-md z-10 px-4 py-3 flex justify-between items-center border-b border-gray-200">
             <div>
                 <span class="text-sm text-gray-500">Paket Soal</span>
                 <h2 id="currentPackageBadge" class="font-bold text-xl text-teal-700">A</h2>
@@ -91,7 +91,8 @@
 
     <!-- 3. RESULT PAGE -->
     <div id="resultPage" class="hidden-section min-h-screen p-4 flex flex-col items-center">
-        <div class="max-w-3xl w-full bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
+        <!-- Result Header (Added ID for scrolling target) -->
+        <div id="resultHeader" class="max-w-3xl w-full bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
             <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-8 text-center text-white">
                 <h2 class="text-2xl font-bold mb-2">Hasil Latihan</h2>
                 <div class="text-6xl font-extrabold mb-2" id="scoreDisplay">0</div>
@@ -218,6 +219,24 @@
         let secondsElapsed = 0;
         let currentPackageName = "";
 
+        // --- HELPER FUNCTION: ROBUST SCROLL ---
+        function robustScrollToTop(targetId = null) {
+            // 1. Coba scroll standar window
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            
+            // 2. Coba scroll body dan documentElement (untuk berbagai browser engine)
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+
+            // 3. Jika ada target spesifik, paksa scroll ke elemen tersebut
+            if (targetId) {
+                const el = document.getElementById(targetId);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'auto', block: 'start' });
+                }
+            }
+        }
+
         // --- FUNCTIONS ---
 
         function startQuiz(pkg) {
@@ -274,7 +293,11 @@
                     {left: "$", right: "$", display: false}
                 ]
             });
-            window.scrollTo(0, 0);
+
+            // FIX: Gunakan Robust Scroll dengan jeda 100ms
+            setTimeout(() => {
+                robustScrollToTop('topHeader');
+            }, 100);
         }
 
         function saveAnswer(qIndex, optIndex) {
@@ -368,7 +391,11 @@
                     {left: "$", right: "$", display: false}
                 ]
             });
-            window.scrollTo(0, 0);
+            
+            // FIX: Gunakan Robust Scroll dengan jeda 100ms
+            setTimeout(() => {
+                robustScrollToTop('resultHeader');
+            }, 100);
         }
     </script>
 </body>
