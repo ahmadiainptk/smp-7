@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangkuman Matematika Kelas 7 - Persiapan Ujian</title>
+    
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Katex for Math Formulas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Mermaid JS for Flowcharts -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+    <!-- Chart.js for Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f3f4f6; }
+        .card { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 20px; margin-bottom: 24px; }
+        .formula-box { background-color: #e0f2fe; border-left: 4px solid #0284c7; padding: 15px; margin: 10px 0; border-radius: 4px; }
+        h1, h2, h3 { color: #1e3a8a; }
+        .canvas-container { display: flex; justify-content: center; margin: 20px 0; }
+        canvas { max-width: 100%; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold mb-2">Rangkuman Matematika Kelas 7</h1>
+            <p class="text-gray-600">Berdasarkan Kisi-Kisi Ujian (Bilangan, Aljabar, PLSV)</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="flex flex-wrap justify-center gap-4 mb-8">
+            <a href="#bilangan" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Bilangan Bulat</a>
+            <a href="#pecahan" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">Pecahan</a>
+            <a href="#aljabar" class="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">Aljabar</a>
+            <a href="#plsv" class="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 transition">PLSV & PtLSV</a>
+        </nav>
+
+        <!-- SECTION 1: BILANGAN BULAT -->
+        <section id="bilangan" class="card">
+            <h2 class="text-2xl font-bold border-b pb-2 mb-4">1. Bilangan Bulat</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Konsep & Garis Bilangan</h3>
+                    <p class="mb-2">Bilangan bulat terdiri dari bilangan negatif, nol, dan positif. Semakin ke kanan nilainya semakin besar.</p>
+                    <div class="formula-box">
+                        <p><strong>Rumus Tanda:</strong></p>
+                        <ul class="list-disc ml-5">
+                            <li>$(+) \times (+) = (+)$</li>
+                            <li>$(-) \times (-) = (+)$</li>
+                            <li>$(+) \times (-) = (-)$</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Visualisasi Garis Bilangan</h3>
+                    <p class="text-sm text-gray-500 mb-2">Ilustrasi posisi nol, negatif (kiri), dan positif (kanan).</p>
+                    <!-- SVG for Number Line -->
+                    <svg width="100%" height="100" viewBox="0 0 400 100" style="background:#f9fafb; border-radius:8px;">
+                        <line x1="20" y1="50" x2="380" y2="50" stroke="#333" stroke-width="2" />
+                        <!-- Arrows -->
+                        <polygon points="380,50 370,45 370,55" fill="#333" />
+                        <polygon points="20,50 30,45 30,55" fill="#333" />
+                        
+                        <!-- Ticks -->
+                        <line x1="200" y1="40" x2="200" y2="60" stroke="red" stroke-width="2" />
+                        <text x="200" y="80" text-anchor="middle" fill="red" font-weight="bold">0</text>
+                        
+                        <line x1="100" y1="45" x2="100" y2="55" stroke="#333" />
+                        <text x="100" y="80" text-anchor="middle" fill="#333">-5</text>
+                        
+                        <line x1="300" y1="45" x2="300" y2="55" stroke="#333" />
+                        <text x="300" y="80" text-anchor="middle" fill="#333">5</text>
+
+                        <text x="50" y="30" fill="blue" font-size="12">Negatif (Makin Kecil)</text>
+                        <text x="350" y="30" text-anchor="end" fill="green" font-size="12">Positif (Makin Besar)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <h3 class="font-semibold text-lg mt-6 mb-2">Logika Soal Cerita (Suhu & Kedalaman)</h3>
+            <p class="mb-2 text-sm">Gunakan diagram alur ini untuk menyelesaikan masalah perubahan suhu atau posisi kapal selam.</p>
+            <div class="mermaid">
+                flowchart LR
+                    A[Mulai] --> B{Jenis Soal?}
+                    B -->|Suhu| C["Naik = Tambah (+)<br>Turun = Kurang (-)"]
+                    B -->|Kedalaman| D["Di Bawah Laut = Negatif (-)<br>Di Atas Laut = Positif (+)"]
+                    B -->|Uang| E["Menabung = (+)<br>Menarik = (-)"]
+                    C --> F[Hitung Hasil Akhir]
+                    D --> F
+                    E --> F
+            </div>
+        </section>
+
+        <!-- SECTION 2: PECAHAN -->
+        <section id="pecahan" class="card">
+            <h2 class="text-2xl font-bold border-b pb-2 mb-4">2. Pecahan</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <h3 class="font-semibold text-lg">Mengubah Pecahan</h3>
+                    <div class="formula-box">
+                        <p><strong>Campuran ke Biasa:</strong></p>
+                        $$ a\frac{b}{c} = \frac{(a \times c) + b}{c} $$
+                        <p class="mt-2 text-sm">Contoh: $2\frac{3}{5} = \frac{(2 \times 5) + 3}{5} = \frac{13}{5}$</p>
+                    </div>
+                    <p class="mt-4"><strong>Tips Mengurutkan Pecahan:</strong><br>Samakan penyebutnya (KPK) terlebih dahulu, atau ubah semua menjadi desimal.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg text-center mb-2">Visualisasi Pecahan (Chart.js)</h3>
+                    <div style="width: 250px; margin: 0 auto;">
+                        <canvas id="fractionChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs mt-2">Perbandingan: Bagian Biru (1/3) vs Merah (Sisa)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ALJABAR -->
+        <section id="aljabar" class="card">
+            <h2 class="text-2xl font-bold border-b pb-2 mb-4">3. Aljabar</h2>
+            
+            <h3 class="font-semibold text-lg mb-2">Unsur-Unsur Aljabar</h3>
+            <p class="mb-4">Contoh bentuk aljabar: <span class="text-xl font-mono bg-yellow-100 px-2 rounded">$-4x + 7$</span></p>
+            
+            <!-- Canvas Illustration for Algebra Parts -->
+            <div class="canvas-container bg-white border rounded-lg p-4">
+                <canvas id="algebraCanvas" width="500" height="150"></canvas>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mt-6">
+                <div class="formula-box">
+                    <h4 class="font-bold">Penjumlahan/Pengurangan</h4>
+                    <p>Hanya bisa dilakukan pada <strong>Suku Sejenis</strong> (variabel dan pangkat sama).</p>
+                    $$ 3x + 5y - 2x = x + 5y $$
+                </div>
+                <div class="formula-box">
+                    <h4 class="font-bold">Perkalian Aljabar</h4>
+                    <p>Kalikan koefisien dengan koefisien, variabel dengan variabel.</p>
+                    $$ 2(3x + 4) = 6x + 8 $$
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PLSV & PtLSV -->
+        <section id="plsv" class="card">
+            <h2 class="text-2xl font-bold border-b pb-2 mb-4">4. Persamaan & Pertidaksamaan Linear</h2>
+            
+            <div class="mb-6">
+                <h3 class="font-semibold text-lg">Konsep Timbangan (Keseimbangan)</h3>
+                <p>PLSV itu seperti timbangan yang seimbang. Apa yang dilakukan di kiri, harus dilakukan di kanan.</p>
+            </div>
+
+            <div class="mermaid">
+                sequenceDiagram
+                    participant Kiri as Ruas Kiri (3x + 5)
+                    participant Kanan as Ruas Kanan (14)
+                    Note over Kiri,Kanan: Soal: 3x + 5 = 14
+                    Kiri->>Kiri: Kurang 5
+                    Kanan->>Kanan: Kurang 5
+                    Note over Kiri,Kanan: Hasil: 3x = 9
+                    Kiri->>Kiri: Bagi 3
+                    Kanan->>Kanan: Bagi 3
+                    Note over Kiri,Kanan: Solusi: x = 3
+            </div>
+
+            <div class="mt-6 formula-box">
+                <h3 class="font-bold">Pertidaksamaan Linear (PtLSV)</h3>
+                <p class="mb-2">Tanda ketaksamaan: $<, >, \leq, \geq$</p>
+                <p class="text-red-600 font-bold">PERINGATAN!</p>
+                <p>Jika kedua ruas <strong>dikali atau dibagi bilangan negatif</strong>, maka tanda ketaksamaan harus <strong>DIBALIK</strong>.</p>
+                $$ -2x > 6 \implies x < -3 $$
+            </div>
+        </section>
+
+        <footer class="text-center mt-10 text-gray-500 pb-10">
+            <p>Dibuat untuk persiapan latihan soal Matematika Kelas 7.</p>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-4 text-blue-500 hover:underline">Kembali ke Atas</button>
+        </footer>
+    </div>
+
+    <script>
+        // 1. Initialize Katex for Auto Rendering Math
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+
+        // 2. Initialize Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+
+        // 3. Chart.js - Fraction Visualization
+        const ctxFraction = document.getElementById('fractionChart').getContext('2d');
+        new Chart(ctxFraction, {
+            type: 'pie',
+            data: {
+                labels: ['Pembilang (1)', 'Sisa (2)'],
+                datasets: [{
+                    label: 'Pecahan 1/3',
+                    data: [1, 2],
+                    backgroundColor: ['#3b82f6', '#e5e7eb'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'Contoh Pecahan 1/3' }
+                }
+            }
+        });
+
+        // 4. HTML Canvas - Algebra Visualization
+        const canvas = document.getElementById('algebraCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw Formula: -4x + 7
+        ctx.font = "bold 40px monospace";
+        ctx.fillStyle = "#333";
+        ctx.fillText("-4x + 7", 150, 80);
+
+        // Arrow and Label for Coefficient (-4)
+        ctx.beginPath();
+        ctx.moveTo(170, 90);
+        ctx.lineTo(170, 120);
+        ctx.strokeStyle = "#ef4444"; // red
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.font = "16px sans-serif";
+        ctx.fillStyle = "#ef4444";
+        ctx.fillText("Koefisien", 140, 135);
+
+        // Arrow and Label for Variable (x)
+        ctx.beginPath();
+        ctx.moveTo(210, 50);
+        ctx.lineTo(210, 20);
+        ctx.strokeStyle = "#3b82f6"; // blue
+        ctx.stroke();
+        ctx.fillStyle = "#3b82f6";
+        ctx.fillText("Variabel", 185, 15);
+
+        // Arrow and Label for Constant (+7)
+        ctx.beginPath();
+        ctx.moveTo(280, 90);
+        ctx.lineTo(280, 120);
+        ctx.strokeStyle = "#10b981"; // green
+        ctx.stroke();
+        ctx.fillStyle = "#10b981";
+        ctx.fillText("Konstanta", 250, 135);
+
+    </script>
+</body>
+</html>
